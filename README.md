@@ -1,2 +1,4 @@
-# Simple designed and easy to use weather-app
+# 🌧 Simple designed and easy to use weather-app ☀️
+
+
 
