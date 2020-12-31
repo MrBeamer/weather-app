@@ -1,4 +1,6 @@
 import './App.css';
+import dateMaker from "./components/dateMaker.js"
+import React, { useState } from 'react';
 
 
 const api = {
@@ -8,37 +10,78 @@ base: "https://api.openweathermap.org/data/2.5/"
 
 function App() {
 
-// Full date of current day - Thu Dec 31 2020 12:27:40 GMT+0100 - wrong format
-const fullDate = new Date();
+   const queryState = useState( '' );
+   const query = queryState[0]; // Contains ''
+   const setQuery = queryState[1]; // It’s a function
 
-// Spefication of how to display the weekday or month (long, short, numeric)
-const date = { day: 'numeric' };
-const weekday = { weekday: 'long' };
-const month = { month: 'long' };
+   const weatherState = useState( {} );
+   const weather = weatherState[0]; // Contains ''
+   const setWeather = weatherState[1]; // It’s a function
 
-// new Intl.DateTimeFormat([locales[, options]]) - makes it possible to define properties and methods for all objects.
-// Passing in fullDate as format - date, weekday, month as options
-const currentDate = new Intl.DateTimeFormat('en-US', date).format(fullDate);
-const currentDay = new Intl.DateTimeFormat('en-US', weekday).format(fullDate);
-const currentMonth = new Intl.DateTimeFormat('en-US', month).format(fullDate);
 
-console.log(currentDate);
-console.log(currentDay);
-console.log(currentMonth);
+     const search = event => {
+    if (event.key === "Enter") {
+      fetch(`${api.base}weather?q=${query}&units=metric&APPID=${api.key}`)
+        .then(response => response.json())
+        .then(data => {
+          setWeather(data);
+          setQuery('');
+          console.log(data);
+          console.log(data.name);
+          console.log(data.main.temp);
+          console.log(data.sys.country);
+        });
+    }
+  }
+
+  // getting weather by coordinates
+const fetchWeatherByCoordinates = (lat, lon) => {
+  fetch(`${api.base}weather?lat=${lat}&lon=${lon}&units=metric&APPID=${api.key}`)
+    .then(response => response.json())
+    .then((data) => {
+      setWeather(data);
+      console.log(data);
+      });
+    }
+
+
+// nav and coordinates
+navigator.geolocation.getCurrentPosition((data) => {
+  const latitude = data.coords.latitude;
+  const longitude = data.coords.longitude;
+  fetchWeatherByCoordinates(latitude, longitude);
+});
+
+
 
   return (
     <div className="app">
       <main>
         <div className="search-box">
           <input
-          type="text"
-          className="search-bar"
-          placeholder="Search"
+            type="text"
+            className="search-bar"
+            placeholder="Search"
+            onChange={e => setQuery(e.target.value)}
+            value={query}
+            onKeyPress={search}
           />
         </div>
         <div className="location-box">
-          <div className="loaction">Berlin, Germany</div>
-          <div className="date">(dateMaker(new Date()))</div>
+          <div className="location">
+            Berlin, Germany
+          </div>
+          <div className="date">
+            {dateMaker()}
+          </div>
+        </div>
+        <div className="weather-box">
+          <div className="temp">
+            4°C
+          </div>
+          <div className="weather">
+            sunny
+          </div>
         </div>
       </main>
     </div>
@@ -46,3 +89,4 @@ console.log(currentMonth);
 }
 
 export default App;
+
