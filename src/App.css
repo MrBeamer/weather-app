@@ -46,11 +46,11 @@ main{
 .location-box .location {
   font-family: 'Roboto', sans-serif;
   color: white;
-  font-size: 32px;
+  font-size: 36px;
   font-weight: 100px;
   text-align: center;
   text-shadow: 3px 3px rgba(50, 50, 70, 0.5);
-  margin-top: 50px;
+  margin-top: 60px;
 }
 
 .location-box .date {
@@ -75,17 +75,17 @@ main{
   padding: 15px 25px;
 
   color: #FFF;
-  font-size: 102px;
+  font-size: 90px;
   font-weight: 900;
 
   text-shadow: 3px 6px rgba(50, 50, 70, 0.5);
   text-align: center;
-  box-shadow: 3px 6px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
 }
 
 .weather-box .weather {
   color: #FFF;
-  font-size: 48px;
+  font-size: 38px;
   font-weight: 700;
   text-shadow: 3px 3px rgba(50, 50, 70, 0.5);
 }

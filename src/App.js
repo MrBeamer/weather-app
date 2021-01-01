@@ -35,7 +35,7 @@ function App() {
   }
 
   return (
-    <div className="app">
+    <div className={(typeof weather.main != "undefined") ? ((weather.main.temp > 16) ? 'app warm' : 'app') : 'app'}>
       <main>
         <div className="search-box">
           <input
@@ -62,7 +62,8 @@ function App() {
                 {Math.round(weather.main.temp)}°C
               </div>
               <div className="weather">
-                sunny
+                {weather.weather[0].main}
+                <img src={`http://openweathermap.org/img/wn/${weather.weather[0].icon}.png`} alt="weather-icon"/>
               </div>
             </div>
           </div>
