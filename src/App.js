@@ -1,6 +1,6 @@
 import './App.css';
 import dateMaker from "./components/dateMaker.js"
-import React, { useState, useEffect } from 'react';
+import React, {useState} from 'react';
 
 
 const api = {
@@ -21,8 +21,6 @@ function App() {
 // array destructuring syntax
    const [query, setQuery] = useState( "" );
    const [weather, setWeather] = useState( {} );
-
-
 
      const search = event => {
     if (event.key === "Enter") {
