@@ -1,7 +1,6 @@
 import './App.css';
 import dateMaker from "./components/dateMaker.js"
-import React, {useState} from 'react';
-
+import React, {useState, useEffect} from 'react';
 
 const api = {
 key: process.env.REACT_APP_OPEN_WEATHER_API_KEY,
@@ -9,7 +8,6 @@ base: "https://api.openweathermap.org/data/2.5/"
 }
 
 function App() {
-
    // const queryState = useState( "" );
    // const query = queryState[0]; // Contains ''
    // const setQuery = queryState[1]; // It’s a function
@@ -29,10 +27,33 @@ function App() {
         .then(data => {
           setWeather(data);
           setQuery('');
-          console.log(data);
         });
     }
   }
+
+    // getting weather by coordinates
+const FetchWeatherByCoordinates = (lat, lon) => {
+  console.log("test");
+   useEffect(() => {
+  fetch(`${api.base}weather?lat=${lat}&lon=${lon}&units=metric&APPID=${api.key}`)
+    .then(response => response.json())
+    .then((data) => {
+          setWeather(data);
+          setQuery('');
+          console.log(data);;
+      });
+     }, [lat, lon]);
+    }
+
+
+FetchWeatherByCoordinates(25.204849, 55.270782);
+// nav and coordinates
+// navigator.geolocation.getCurrentPosition((data) => {
+//     console.log("test");
+//   const latitude = data.coords.latitude;
+//   const longitude = data.coords.longitude;
+//   fetchWeatherByCoordinates(latitude, longitude);
+// });
 
   return (
     <div className={(typeof weather.main != "undefined") ? ((weather.main.temp > 16) ? 'app warm' : 'app') : 'app'}>
