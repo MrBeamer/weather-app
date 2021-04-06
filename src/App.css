@@ -95,3 +95,13 @@ input::placeholder {
   font-size: 38px;
   font-weight: 300;
 }
+
+@media only screen and (min-width: 1200px) {
+  .app.warm {
+    background-image: url(./assets/desktop-warm-bg.svg);
+  }
+
+  .app {
+    background-image: url(./assets/desktop-cold-bg.svg);
+  }
+}
