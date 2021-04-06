@@ -68,17 +68,21 @@ function App() {
           <div>
             <div className="location-box">
               <div className="location">
-                {weather.name}, {weather.sys.country}
+                {weather.name}
+                {/* <img
+                  src={`https://openweathermap.org/img/wn/${weather.weather[0].icon}.png`}
+                  alt="weather-icon"
+                /> */}
               </div>
               <div className="date">{dateMaker()}</div>
             </div>
             <div className="weather-box">
               <div className="temp">{Math.round(weather.main.temp)}°C</div>
               <div className="weather">
-                {weather.weather[0].main}
+                {/* {weather.weather[0].main} */}
                 <img
-                  src={`https://openweathermap.org/img/wn/${weather.weather[0].icon}.png`}
-                  alt="weather-icon"
+                // src={`https://openweathermap.org/img/wn/${weather.weather[0].icon}.png`}
+                // alt="weather-icon" {weather.sys.country}
                 />
               </div>
             </div>

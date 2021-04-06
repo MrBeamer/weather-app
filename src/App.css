@@ -1,27 +1,30 @@
 .app {
-  background-image: url(./assets/cold-bg.jpg);
+  background-image: url(./assets/cold-bg.webp);
   background-size: cover;
   background-position: bottom;
   transition: 0.4 ease-out;
 }
 
 .app.warm {
-  background-image: url(./assets/warm-bg.jpg);
+  background-image: url(./assets/warm-bg.webp);
 }
 
 main {
   min-height: 100vh;
   background-image: linear-gradient(
     to bottom,
-    rgba(0, 0, 0, 0.3),
-    rgba(0, 0, 0, 0.3)
+    rgba(0, 0, 0, 0.03),
+    rgba(0, 0, 0, 0.03)
   );
   padding: 25px;
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: auto auto auto;
 }
 
-.searchbox {
-  width: 100%;
-  margin: 0 0 75px;
+.search-box {
+  grid-row: 3;
+  align-self: flex-end;
 }
 
 .search-box .search-bar {
@@ -32,27 +35,31 @@ main {
   background: none;
   border: none;
   outline: none;
-  background-color: rgba(255, 255, 255, 0.5);
-  border-radius: 0px 0px 16px 16px;
-  margin-top: -25px;
-  box-shadow: 0 0 15px rgb(0 0 0 / 10%);
+  border-radius: 0px 0px 4px 4px;
+  box-shadow: 0 0 15px rgb(0 0 0 / 4%);
   color: #313131;
   font-size: 20px;
-  transition: 0.4s ease;
+  transition: 1s ease;
+  letter-spacing: 0.8px;
+}
+
+input::placeholder {
+  color: rgba(255, 255, 255, 0.75);
+  letter-spacing: 0.8px;
 }
 
 .search-box .search-bar:focus {
-  background-color: rgba(255, 255, 255, 0.75);
+  background-color: rgba(255, 255, 255);
+  /* background-color: rgba(255, 255, 255, 0.75); */
 }
 
 .location-box .location {
   font-family: "Roboto", sans-serif;
   color: white;
   font-size: 36px;
-  font-weight: 100px;
   text-align: center;
-  text-shadow: 3px 3px rgba(50, 50, 70, 0.5);
   margin-top: 60px;
+  letter-spacing: 0.8px;
 }
 
 .location-box .date {
@@ -61,6 +68,7 @@ main {
   font-size: 16px;
   font-weight: 100px;
   text-align: center;
+  letter-spacing: 0.8px;
 }
 
 .weather-box {
@@ -71,23 +79,19 @@ main {
   position: relative;
   display: inline-block;
   margin: 30px auto;
-  background-color: rgba(255, 255, 255, 0.2);
-  border-radius: 16px;
-
-  padding: 15px 25px;
+  border-radius: 14px 6px;
+  padding: 5px 10px;
 
   color: #fff;
   font-size: 90px;
-  font-weight: 900;
+  font-weight: 300;
 
-  text-shadow: 3px 6px rgba(50, 50, 70, 0.5);
   text-align: center;
-  box-shadow: 0 0 15px rgb(0 0 0 / 10%);
+  box-shadow: 0 0 15px rgb(0 0 0 / 6%);
 }
 
 .weather-box .weather {
   color: #fff;
   font-size: 38px;
-  font-weight: 700;
-  text-shadow: 3px 3px rgba(50, 50, 70, 0.5);
+  font-weight: 300;
 }
