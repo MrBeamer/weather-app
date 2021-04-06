@@ -76,7 +76,7 @@ function App() {
               <div className="weather">
                 {weather.weather[0].main}
                 <img
-                  src={`prefix://openweathermap.org/img/wn/${weather.weather[0].icon}.png`}
+                  src={`${prefix}://openweathermap.org/img/wn/${weather.weather[0].icon}.png`}
                   alt="weather-icon"
                 />
               </div>
