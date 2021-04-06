@@ -1,12 +1,21 @@
 ## General info
-🌧 Simple (mobile only) designed and easy to use weather-app ☀️
+
+🌧 Designed mobile only weather-app ☀️
+
+## Functionality info
+
+- Show current weather, time and date of current location
+- Search for a certain locations weather
+- Dynamic background, depending on temperature
 
 ## Technologies
-Project is created with:
-* JavaScript
-* React
-* Express
 
+Project is created with:
+
+- JavaScript
+- React
+- Express
 
 ## Live Preview
+
 https://weather-hoc.herokuapp.com/

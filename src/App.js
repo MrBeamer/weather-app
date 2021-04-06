@@ -8,14 +8,6 @@ const api = {
 };
 
 function App() {
-  // const queryState = useState( "" );
-  // const query = queryState[0]; // Contains ''
-  // const setQuery = queryState[1]; // It’s a function
-
-  // const weatherState = useState( {} );
-  // const weather = weatherState[0]; // Contains ''
-  // const setWeather = weatherState[1]; // It’s a function
-
   // array destructuring syntax
   const [query, setQuery] = useState("");
   const [weather, setWeather] = useState({});
@@ -31,33 +23,24 @@ function App() {
     }
   };
 
-  // let coords = false;
-  // if (coords === false) {
-  //   navigator.geolocation.getCurrentPosition((data) => {
-  //     coords = true;
-  //     console.log("test");
-  //     const latitude = data.coords.latitude;
-  //     const longitude = data.coords.longitude;
-  //     fetchWeatherByCoordinates(latitude, longitude);
-  //   });
-  // } else {
-  //   console.log("works");
-  // }
+  const fetchWeatherByCoordinates = (lat, lon) => {
+    fetch(
+      `${api.base}weather?lat=${lat}&lon=${lon}&units=metric&APPID=${api.key}`
+    )
+      .then((response) => response.json())
+      .then((data) => {
+        setWeather(data);
+        setQuery("");
+      });
+  };
 
-  // const fetchWeatherByCoordinates = (lat, lon) => {
-  //   let coords = false;
-  //   if (coords === false) {
-  //     fetch(
-  //       `${api.base}weather?lat=${lat}&lon=${lon}&units=metric&APPID=${api.key}`
-  //     )
-  //       .then((response) => response.json())
-  //       .then((data) => {
-  //         setWeather(data);
-  //         setQuery("");
-  //       });
-  //     coords = true;
-  //   }
-  // };
+  useEffect(() => {
+    navigator.geolocation.getCurrentPosition((data) => {
+      const latitude = data.coords.latitude;
+      const longitude = data.coords.longitude;
+      fetchWeatherByCoordinates(latitude, longitude);
+    });
+  }, []);
 
   return (
     <div
