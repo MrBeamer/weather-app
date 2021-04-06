@@ -39,7 +39,9 @@ function App() {
       const latitude = data.coords.latitude;
       const longitude = data.coords.longitude;
       fetchWeatherByCoordinates(latitude, longitude);
+      console.log("test");
     });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
@@ -76,7 +78,7 @@ function App() {
               <div className="weather">
                 {weather.weather[0].main}
                 <img
-                  src={`${prefix}://openweathermap.org/img/wn/${weather.weather[0].icon}.png`}
+                  src={`https://openweathermap.org/img/wn/${weather.weather[0].icon}.png`}
                   alt="weather-icon"
                 />
               </div>
