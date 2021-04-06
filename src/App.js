@@ -2,12 +2,12 @@ import "./App.css";
 import dateMaker from "./components/dateMaker.js";
 import React, { useState, useEffect } from "react";
 
-const api = {
-  key: process.env.REACT_APP_OPEN_WEATHER_API_KEY,
-  base: "https://api.openweathermap.org/data/2.5/",
-};
-
 function App() {
+  const api = {
+    key: process.env.REACT_APP_OPEN_WEATHER_API_KEY,
+    base: "https://api.openweathermap.org/data/2.5/",
+  };
+
   // array destructuring syntax
   const [query, setQuery] = useState("");
   const [weather, setWeather] = useState({});
@@ -38,7 +38,6 @@ function App() {
     navigator.geolocation.getCurrentPosition((data) => {
       const latitude = data.coords.latitude;
       const longitude = data.coords.longitude;
-      console.log("test");
       fetchWeatherByCoordinates(latitude, longitude);
     });
   }, []);
@@ -77,7 +76,7 @@ function App() {
               <div className="weather">
                 {weather.weather[0].main}
                 <img
-                  src={`http://openweathermap.org/img/wn/${weather.weather[0].icon}.png`}
+                  src={`https://openweathermap.org/img/wn/${weather.weather[0].icon}.png`}
                   alt="weather-icon"
                 />
               </div>

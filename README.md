@@ -18,4 +18,4 @@ Project is created with:
 
 ## Live Preview
 
-https://weather-hoc.herokuapp.com/
+https://hoc-weather.netlify.app/

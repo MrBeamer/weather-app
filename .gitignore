@@ -24,6 +24,7 @@ yarn-error.log*
 
 
 .eslintcache
+server
 
 # keep the api keys safe
 .env
