@@ -7,7 +7,7 @@ function App() {
     key: process.env.REACT_APP_OPEN_WEATHER_API_KEY,
     base: "https://api.openweathermap.org/data/2.5/",
   };
-
+  const prefix = "https";
   // array destructuring syntax
   const [query, setQuery] = useState("");
   const [weather, setWeather] = useState({});
@@ -76,7 +76,7 @@ function App() {
               <div className="weather">
                 {weather.weather[0].main}
                 <img
-                  src={`https://openweathermap.org/img/wn/${weather.weather[0].icon}.png`}
+                  src={`prefix://openweathermap.org/img/wn/${weather.weather[0].icon}.png`}
                   alt="weather-icon"
                 />
               </div>
