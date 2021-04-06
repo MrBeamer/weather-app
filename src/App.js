@@ -38,6 +38,7 @@ function App() {
     navigator.geolocation.getCurrentPosition((data) => {
       const latitude = data.coords.latitude;
       const longitude = data.coords.longitude;
+      console.log("test");
       fetchWeatherByCoordinates(latitude, longitude);
     });
   }, []);
