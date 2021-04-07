@@ -36,21 +36,26 @@ main {
   border: none;
   outline: none;
   border-radius: 4px;
-  box-shadow: 0 0 15px rgb(0 0 0 / 4%);
-  color: #313131;
+  box-shadow: 0 0 15px rgb(0 0 0 / 2%);
+  color: #4a4a4a;
+  /* color: #3d3d3d; */
   font-size: 20px;
   transition: 1s ease;
   letter-spacing: 0.8px;
 }
 
 input::placeholder {
-  color: rgba(255, 255, 255, 0.75);
+  color: rgba(255, 255, 255);
+  opacity: 0.75;
   letter-spacing: 0.8px;
 }
 
+input:focus::placeholder {
+  opacity: 0;
+}
+
 .search-box .search-bar:focus {
-  background-color: rgba(255, 255, 255);
-  /* background-color: rgba(255, 255, 255, 0.75); */
+  background-color: rgba(255, 255, 255, 0.75);
 }
 
 .location-box .location {
@@ -67,10 +72,10 @@ input::placeholder {
   font-family: "Roboto", sans-serif;
   color: white;
   font-size: 16px;
-
   text-align: center;
   letter-spacing: 0.8px;
   font-weight: 300;
+  margin-top: 0.5px;
 }
 
 .weather-box {
@@ -81,16 +86,16 @@ input::placeholder {
   position: relative;
   display: inline-block;
   margin: 18px auto;
-  margin-bottom: 0;
+  margin-bottom: 10px;
   border-radius: 6px 6px;
   padding: 5px 10px;
 
   color: #fff;
-  font-size: 90px;
+  font-size: 85px;
   font-weight: 200;
 
   text-align: center;
-  box-shadow: 0 0 15px rgb(0 0 0 / 6%);
+  box-shadow: 0 0 15px rgb(0 0 0 / 4%);
 }
 
 .weather-box .weather {
