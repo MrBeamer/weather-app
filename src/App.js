@@ -2,11 +2,12 @@ import "./App.css";
 import dateMaker from "./components/dateMaker.js";
 import React, { useState, useEffect } from "react";
 
-function App() {
+export default function App() {
   const api = {
     key: process.env.REACT_APP_OPEN_WEATHER_API_KEY,
     base: "https://api.openweathermap.org/data/2.5/",
   };
+
   // array destructuring syntax
   const [query, setQuery] = useState("");
   const [weather, setWeather] = useState({});
@@ -88,5 +89,3 @@ function App() {
     </div>
   );
 }
-
-export default App;
