@@ -1,5 +1,5 @@
 import "./App.css";
-import dateMaker from "./components/dateMaker.js";
+import dateMaker from "./dateMaker.js";
 import React, { useState, useEffect } from "react";
 
 export default function App() {
@@ -11,6 +11,15 @@ export default function App() {
   // array destructuring syntax
   const [query, setQuery] = useState("");
   const [weather, setWeather] = useState({});
+  const [time, setTime] = useState(new Date());
+
+  useState(() => {
+    const timeTick = setInterval(() => {
+      setTime(new Date());
+    }, 1000);
+
+    return clearInterval(timeTick);
+  }, [time]);
 
   const search = (event) => {
     if (event.key === "Enter") {
@@ -39,7 +48,6 @@ export default function App() {
       const latitude = data.coords.latitude;
       const longitude = data.coords.longitude;
       fetchWeatherByCoordinates(latitude, longitude);
-      console.log("test");
     });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -47,11 +55,10 @@ export default function App() {
   return (
     <div
       className={
-        typeof weather.main != "undefined"
-          ? weather.main.temp > 16
-            ? "app warm"
-            : "app"
-          : "app"
+        // typeof weather.main != "undefined"
+        // ? weather.main.temp > 16
+        time.getHours() < 18 ? "app warm" : "app"
+        // : "app"
       }
     >
       <main>

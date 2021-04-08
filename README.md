@@ -6,7 +6,7 @@
 
 - Show current weather, time and date of current location
 - Search for a certain locations weather
-- Dynamic background, depending on temperature
+- Dynamic background, depending on time
 
 ## Technologies
 
@@ -14,7 +14,6 @@ Project is created with:
 
 - JavaScript
 - React
-- Express
 
 ## Live Preview
 
