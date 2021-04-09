@@ -35,7 +35,7 @@ export default function App() {
         })
         .catch((error) => {
           console.log(error);
-          setErrMessage(error);
+          // setErrMessage(error);
         })
         .finally(() => {
           setQuery("");
