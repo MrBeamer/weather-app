@@ -12,7 +12,7 @@ export default function App() {
   const [query, setQuery] = useState("");
   const [weather, setWeather] = useState({});
   const [time, setTime] = useState(new Date());
-  const [errMessage, setErrMessage] = useState("");
+  // const [errMessage, setErrMessage] = useState("");
 
   useState(() => {
     const timeTick = setInterval(() => {
