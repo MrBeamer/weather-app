@@ -12,6 +12,7 @@ export default function App() {
   const [query, setQuery] = useState("");
   const [weather, setWeather] = useState({});
   const [time, setTime] = useState(new Date());
+  const [errMessage, setErrMessage] = useState("");
 
   useState(() => {
     const timeTick = setInterval(() => {
@@ -23,10 +24,22 @@ export default function App() {
   const search = (event) => {
     if (event.key === "Enter") {
       fetch(`${api.base}weather?q=${query}&units=metric&APPID=${api.key}`)
-        .then((response) => response.json())
+        .then((response) => {
+          if (!response.ok) {
+            throw Error("Invalid city or country, please try again.");
+          }
+          return response.json();
+        })
         .then((data) => {
           setWeather(data);
+        })
+        .catch((error) => {
+          console.log(error);
+          setErrMessage(error);
+        })
+        .finally(() => {
           setQuery("");
+          document.querySelector("input").blur();
         });
     }
   };
@@ -39,6 +52,9 @@ export default function App() {
       .then((data) => {
         setWeather(data);
         setQuery("");
+      })
+      .catch((error) => {
+        console.log("Location not found, please hare your location");
       });
   };
 
@@ -61,6 +77,9 @@ export default function App() {
       }
     >
       <main>
+        {/* <p className="error">
+          {errMessage.toString().split(" ").slice(1).join(" ")}
+        </p> */}
         <div className="search-box">
           <input
             tabIndex="-1"

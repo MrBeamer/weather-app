@@ -105,6 +105,17 @@ input:focus::placeholder {
   letter-spacing: 0.8px;
 }
 
+.error {
+  height: 100px;
+  font-family: "Roboto", sans-serif;
+  color: white;
+  font-size: 32px;
+  margin-top: 5px;
+  letter-spacing: 0.8px;
+  font-weight: 300;
+  transition: ease-in 5s;
+}
+
 @media only screen and (min-width: 1200px) {
   .app.warm {
     background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
