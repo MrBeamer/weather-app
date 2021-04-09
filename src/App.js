@@ -17,9 +17,8 @@ export default function App() {
     const timeTick = setInterval(() => {
       setTime(new Date());
     }, 1000);
-
     return clearInterval(timeTick);
-  }, [time]);
+  });
 
   const search = (event) => {
     if (event.key === "Enter") {
@@ -64,6 +63,7 @@ export default function App() {
       <main>
         <div className="search-box">
           <input
+            tabIndex="-1"
             type="text"
             className="search-bar"
             placeholder="Search"

@@ -107,10 +107,12 @@ input:focus::placeholder {
 
 @media only screen and (min-width: 1200px) {
   .app.warm {
-    background-image: url(./assets/desktop-warm-bg.svg);
+    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+      url(./assets/desktop-warm-bg.svg);
   }
 
   .app {
-    background-image: url(./assets/desktop-cold-bg.svg);
+    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+      url(./assets/desktop-cold-bg.svg);
   }
 }
