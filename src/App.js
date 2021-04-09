@@ -82,7 +82,6 @@ export default function App() {
         </p> */}
         <div className="search-box">
           <input
-            tabIndex="-1"
             type="text"
             className="search-bar"
             placeholder="Search"
