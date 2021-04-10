@@ -1,6 +1,7 @@
 import "./App.css";
 import dateMaker from "./dateMaker.js";
 import React, { useState, useEffect } from "react";
+import Loader from "./Loader.js";
 
 export default function App() {
   const api = {
@@ -12,6 +13,7 @@ export default function App() {
   const [query, setQuery] = useState("");
   const [weather, setWeather] = useState({});
   const [time, setTime] = useState(new Date());
+  const [loading, setLoading] = useState(true);
   // const [errMessage, setErrMessage] = useState("");
 
   useState(() => {
@@ -38,6 +40,7 @@ export default function App() {
           // setErrMessage(error);
         })
         .finally(() => {
+          setLoading(false);
           setQuery("");
           document.querySelector("input").blur();
         });
@@ -55,6 +58,9 @@ export default function App() {
       })
       .catch((error) => {
         console.log("Location not found, please hare your location");
+      })
+      .finally(() => {
+        setLoading(false);
       });
   };
 
@@ -66,6 +72,10 @@ export default function App() {
     });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  if (loading) {
+    return <Loader time={time.getHours()} />;
+  }
 
   return (
     <div
