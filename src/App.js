@@ -76,6 +76,11 @@ export default function App() {
     return <Loader time={time.getHours()} />;
   }
 
+  function handlerSearchChange(e) {
+    document.querySelector("input").focus({ preventScroll: true });
+    setQuery(e.target.value);
+  }
+
   return (
     <div
       className={
@@ -94,7 +99,7 @@ export default function App() {
             type="text"
             className="search-bar"
             placeholder="Search"
-            onChange={(e) => setQuery(e.target.value)}
+            onChange={handlerSearchChange}
             value={query}
             onKeyPress={search}
           />
