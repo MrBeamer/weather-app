@@ -9,7 +9,6 @@ export default function App() {
     base: "https://api.openweathermap.org/data/2.5/",
   };
 
-  // array destructuring syntax
   const [query, setQuery] = useState("");
   const [weather, setWeather] = useState({});
   const [time, setTime] = useState(new Date());
