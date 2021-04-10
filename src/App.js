@@ -77,7 +77,8 @@ export default function App() {
   }
 
   function handlerSearchChange(e) {
-    document.querySelector("input").focus({ preventScroll: true });
+    const searchBar = document.querySelector(".search-bar");
+    searchBar.focus({ preventScroll: true });
     setQuery(e.target.value);
   }
 
